@@ -120,6 +120,10 @@ namespace Landis.Extension.BiomassHarvest
 
             ModelCore.UI.WriteLine("   Reading stand map {0} ...", parameters.StandMap);
             Stands.ReadMap(parameters.StandMap);
+
+            //finish initializing SiteVars
+            HarvestMgmtLib.SiteVars.GetExternalVars();
+
             foreach (ManagementArea mgmtArea in managementAreas)
                 mgmtArea.FinishInitialization();
 
