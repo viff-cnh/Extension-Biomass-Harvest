@@ -181,7 +181,7 @@ namespace Landis.Extension.BiomassHarvest
 
             HarvestMgmtLib.SiteVars.Prescription.ActiveSiteValues = null;
             SiteVars.BiomassRemoved.ActiveSiteValues = 0;
-            SiteVars.CohortsPartiallyDamaged.ActiveSiteValues = 0;
+            Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged.ActiveSiteValues = 0;
             HarvestMgmtLib.SiteVars.CohortsDamaged.ActiveSiteValues = 0;
             SiteVars.BiomassBySpecies.ActiveSiteValues = null; 
 
@@ -216,7 +216,7 @@ namespace Landis.Extension.BiomassHarvest
 
                         foreach (ActiveSite site in stand)
                         {
-                            if (SiteVars.CohortsPartiallyDamaged[site] > 0 || HarvestMgmtLib.SiteVars.CohortsDamaged[site] > 0)
+                            if (Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site] > 0 || HarvestMgmtLib.SiteVars.CohortsDamaged[site] > 0)
                             {
                                 Landis.Library.Succession.Reproduction.PreventEstablishment(site);
                                 sitesToDelete.Add(site);
@@ -366,11 +366,11 @@ namespace Landis.Extension.BiomassHarvest
                     HarvestMgmtLib.SiteVars.TimeOfLastEvent[site] = modelCore.CurrentTime;
                 }
 
-                cohortsDamaged += SiteVars.CohortsPartiallyDamaged[site];
-                cohortsKilled += HarvestMgmtLib.SiteVars.CohortsDamaged[site];
+                cohortsDamaged += Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site];
+                cohortsKilled += (HarvestMgmtLib.SiteVars.CohortsDamaged[site] - Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site]);
 
 
-                if (SiteVars.CohortsPartiallyDamaged[site] > 0 || HarvestMgmtLib.SiteVars.CohortsDamaged[site] > 0)
+                if (Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site] > 0 || HarvestMgmtLib.SiteVars.CohortsDamaged[site] > 0)
                 {
                     damagedSites++;
 

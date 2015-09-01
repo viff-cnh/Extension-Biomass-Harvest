@@ -29,7 +29,6 @@ namespace Landis.Extension.BiomassHarvest
     public class SiteVars
     {
         private static ISiteVar<double> biomassRemoved;
-        private static ISiteVar<int> cohortsPartiallyDamaged;
         private static ISiteVar<double> capacityReduction;
         private static ISiteVar<Pool> woodyDebris;
         private static ISiteVar<Pool> litter;
@@ -47,7 +46,7 @@ namespace Landis.Extension.BiomassHarvest
             cohorts = PlugIn.ModelCore.GetSiteVar<ISiteCohorts>("Succession.BiomassCohorts");
 
             biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
-            cohortsPartiallyDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
+            Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             capacityReduction = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             biomassBySpecies = PlugIn.ModelCore.Landscape.NewSiteVar<IDictionary<ISpecies, int>>();
 
@@ -82,14 +81,6 @@ namespace Landis.Extension.BiomassHarvest
         {
             get {
                 return biomassRemoved;
-            }
-        }
-        //---------------------------------------------------------------------
-
-        public static ISiteVar<int> CohortsPartiallyDamaged
-        {
-            get {
-                return cohortsPartiallyDamaged;
             }
         }
         //---------------------------------------------------------------------
