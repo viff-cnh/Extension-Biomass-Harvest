@@ -377,18 +377,22 @@ namespace Landis.Extension.BiomassHarvest
                     //Conversion from [g m-2] to [Mg ha-1] to [Mg]
                     biomassRemoved += SiteVars.BiomassRemoved[site] / 100.0 * modelCore.CellArea;
                     IDictionary<ISpecies, int> siteBiomassBySpecies = SiteVars.BiomassBySpecies[site];
-                    // Sum up total biomass for each species
-                    foreach (ISpecies species in modelCore.Species)
+                    if (siteBiomassBySpecies != null)
                     {
-                        int addValue = 0;
-                        siteBiomassBySpecies.TryGetValue(species, out addValue);
-                        double oldValue;
-                        if (totalBiomassBySpecies.TryGetValue(species, out oldValue))
+                        // Sum up total biomass for each species
+                        foreach (ISpecies species in modelCore.Species)
                         {
-                            totalBiomassBySpecies[species] += addValue / 100.0 * modelCore.CellArea;
-                        }
-                        else {
-                            totalBiomassBySpecies.Add(species, addValue / 100.0 * modelCore.CellArea);
+                            int addValue = 0;
+                            siteBiomassBySpecies.TryGetValue(species, out addValue);
+                            double oldValue;
+                            if (totalBiomassBySpecies.TryGetValue(species, out oldValue))
+                            {
+                                totalBiomassBySpecies[species] += addValue / 100.0 * modelCore.CellArea;
+                            }
+                            else
+                            {
+                                totalBiomassBySpecies.Add(species, addValue / 100.0 * modelCore.CellArea);
+                            }
                         }
                     }
                 }
