@@ -39,6 +39,8 @@ namespace Landis.Extension.BiomassHarvest
         int[,] totalSpeciesCohorts;
         int[] totalCohortsKilled;
         int[] totalCohortsDamaged;
+        // 2015-09-14 LCB Track prescriptions as they are reported in summary log so we don't duplicate
+        bool[] prescriptionReported;
 
         private static IParameters parameters;
 
@@ -195,6 +197,8 @@ namespace Landis.Extension.BiomassHarvest
                 totalSpeciesCohorts = new int[Prescription.Count, modelCore.Species.Count];
                 totalCohortsDamaged = new int[Prescription.Count];
                 totalCohortsKilled  = new int[Prescription.Count];
+                // 2015-09-14 LCB Track prescriptions as they are reported in summary log so we don't duplicate
+                prescriptionReported = new bool[Prescription.Count];
 
 
                 mgmtArea.HarvestStands();
@@ -234,28 +238,23 @@ namespace Landis.Extension.BiomassHarvest
                 // Write Summary Log File:
                 foreach (AppliedPrescription aprescription in mgmtArea.Prescriptions)
                 {
-                    /*
-                     * 2015-07-28 LCB
-                     * Check to see if prescription was actually applied before writing it to summary log
-                     */
-                    if (aprescription.ApplyPrescription)
+                    Prescription prescription = aprescription.Prescription;
+                    string species_string = "";
+                    foreach (ISpecies species in modelCore.Species)
+                        species_string += ", " + totalSpeciesCohorts[prescription.Number, species.Index];
+
+                    //summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalCohortsDamaged,TotalCohortsKilled,{0}", species_header_names);
+                    if (totalSites[prescription.Number] > 0 && prescriptionReported[prescription.Number] != true)
                     {
-
-                        Prescription prescription = aprescription.Prescription;
-                        string species_string = "";
-                        foreach (ISpecies species in modelCore.Species)
-                            species_string += ", " + totalSpeciesCohorts[prescription.Number, species.Index];
-
-                        //summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalCohortsDamaged,TotalCohortsKilled,{0}", species_header_names);
-                        if (totalSites[prescription.Number] > 0)
-                            summaryLog.WriteLine("{0},{1},{2},{3},{4},{5}{6}",
-                                modelCore.CurrentTime,
-                                mgmtArea.MapCode,
-                                prescription.Name,
-                                totalDamagedSites[prescription.Number],
-                                totalCohortsDamaged[prescription.Number],
-                                totalCohortsKilled[prescription.Number],
-                                species_string);
+                        summaryLog.WriteLine("{0},{1},{2},{3},{4},{5}{6}",
+                            modelCore.CurrentTime,
+                            mgmtArea.MapCode,
+                            prescription.Name,
+                            totalDamagedSites[prescription.Number],
+                            totalCohortsDamaged[prescription.Number],
+                            totalCohortsKilled[prescription.Number],
+                            species_string);
+                        prescriptionReported[prescription.Number] = true;
                     }
                 }
             }
