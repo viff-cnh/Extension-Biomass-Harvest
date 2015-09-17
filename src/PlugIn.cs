@@ -366,7 +366,7 @@ namespace Landis.Extension.BiomassHarvest
                 }
 
                 cohortsDamaged += Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site];
-                cohortsKilled += (HarvestMgmtLib.SiteVars.CohortsDamaged[site] - Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site]);
+                cohortsKilled += HarvestMgmtLib.SiteVars.CohortsDamaged[site];
 
 
                 if (Landis.Library.BiomassHarvest.SiteVars.CohortsPartiallyDamaged[site] > 0 || HarvestMgmtLib.SiteVars.CohortsDamaged[site] > 0)
