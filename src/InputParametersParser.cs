@@ -96,13 +96,14 @@ namespace Landis.Extension.BiomassHarvest
 
         //---------------------------------------------------------------------
 
+        /// <summary>
+        /// Puts filename for BiomassMaps into the parameters
+        /// </summary>
+        /// <remarks>
+        /// This overrides the base method in harvest-mgmt-lib
+        /// </remarks>
         protected override void ReadBiomassMaps(InputParameters baseParameters)
         {
-            // TO DO: Probably should be required in the final release but made
-            // it optional for now so that CBI doesn't have to update every
-            // scenario in the short term.
-            // 2015-09-17 LCB The above comment appears to be quite old. It was in
-            // v2.3 of the extension. Assuming it is no longer relevant.
             InputVar<string> biomassMapNames = new InputVar<string>("BiomassMaps");
             if (ReadOptionalVar(biomassMapNames))
             {
