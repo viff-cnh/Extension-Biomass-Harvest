@@ -153,8 +153,8 @@ namespace Landis.Extension.BiomassHarvest
             string species_header_names_biomass = "";
             int i = 0;
             for (i = 0; i < modelCore.Species.Count; i++) {
-                species_header_names += "," + modelCore.Species[i].Name+" (cohorts)";
-                species_header_names_biomass += "," + modelCore.Species[i].Name + " (Mg)";
+                species_header_names += "," + modelCore.Species[i].Name+"Cohorts";
+                species_header_names_biomass += "," + modelCore.Species[i].Name + "Mg";
             }
 
             log.WriteLine("Time,ManagementArea,Prescription,StandMapCode,EventId,StandAge,StandRank,StandSiteCount,DamagedSites,MgBiomassRemoved,MgBioRemovedPerDamagedHa,CohortsDamaged,CohortsKilled{0}{1}", species_header_names, species_header_names_biomass);
