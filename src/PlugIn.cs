@@ -416,6 +416,9 @@ namespace Landis.Extension.BiomassHarvest
                 species_biomass += string.Format("{0},", biomass_value);
             }
 
+            //Trim trailing comma so we don't add an extra column
+            species_biomass = species_biomass.TrimEnd(',');
+
             //now that the damage table for this stand has been recorded, clear it!!
             stand.ClearDamageTable();
 
