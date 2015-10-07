@@ -41,6 +41,8 @@ namespace Landis.Extension.BiomassHarvest
         int[] totalCohortsDamaged;
         // 2015-09-14 LCB Track prescriptions as they are reported in summary log so we don't duplicate
         bool[] prescriptionReported;
+        double[,] totalSpeciesBiomass;
+        double[] totalBiomassRemoved;
 
         private static IParameters parameters;
 
@@ -171,7 +173,7 @@ namespace Landis.Extension.BiomassHarvest
                 throw new System.ApplicationException(mesg);
             }
             summaryLog.AutoFlush = true;
-            summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalCohortsDamaged,TotalCohortsKilled{0}", species_header_names);
+            summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalBiomassRemovedMg,TotalCohortsDamaged,TotalCohortsKilled{0}{1}", species_header_names, species_header_names_biomass);
 
         }
 
@@ -199,7 +201,8 @@ namespace Landis.Extension.BiomassHarvest
                 totalCohortsKilled  = new int[Prescription.Count];
                 // 2015-09-14 LCB Track prescriptions as they are reported in summary log so we don't duplicate
                 prescriptionReported = new bool[Prescription.Count];
-
+                totalSpeciesBiomass = new double[Prescription.Count, modelCore.Species.Count];
+                totalBiomassRemoved = new double[Prescription.Count];
 
                 mgmtArea.HarvestStands();
                 //and record each stand that's been harvested
@@ -240,20 +243,26 @@ namespace Landis.Extension.BiomassHarvest
                 {
                     Prescription prescription = aprescription.Prescription;
                     string species_string = "";
+                    string biomass_string = "";
                     foreach (ISpecies species in modelCore.Species)
+                    {
                         species_string += ", " + totalSpeciesCohorts[prescription.Number, species.Index];
+                        biomass_string += ", " + totalSpeciesBiomass[prescription.Number, species.Index];
+                    }
 
                     //summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalCohortsDamaged,TotalCohortsKilled,{0}", species_header_names);
                     if (totalSites[prescription.Number] > 0 && prescriptionReported[prescription.Number] != true)
                     {
-                        summaryLog.WriteLine("{0},{1},{2},{3},{4},{5}{6}",
+                        summaryLog.WriteLine("{0},{1},{2},{3},{4},{5},{6}{7}{8}",
                             modelCore.CurrentTime,
                             mgmtArea.MapCode,
                             prescription.Name,
                             totalDamagedSites[prescription.Number],
+                            totalBiomassRemoved[prescription.Number],
                             totalCohortsDamaged[prescription.Number],
                             totalCohortsKilled[prescription.Number],
-                            species_string);
+                            species_string,
+                            biomass_string);
                         prescriptionReported[prescription.Number] = true;
                     }
                 }
@@ -401,6 +410,7 @@ namespace Landis.Extension.BiomassHarvest
             totalDamagedSites[standPrescriptionNumber] += damagedSites;
             totalCohortsDamaged[standPrescriptionNumber] += cohortsDamaged;
             totalCohortsKilled[standPrescriptionNumber] += cohortsKilled;
+            totalBiomassRemoved[standPrescriptionNumber] += biomassRemoved;
 
 
             //csv string for log file, contains species affected count
@@ -414,6 +424,7 @@ namespace Landis.Extension.BiomassHarvest
                 totalSpeciesCohorts[standPrescriptionNumber, species.Index] += cohortCount;
                 totalBiomassBySpecies.TryGetValue(species, out biomass_value);
                 species_biomass += string.Format("{0},", biomass_value);
+                totalSpeciesBiomass[standPrescriptionNumber, species.Index] += biomass_value;
             }
 
             //Trim trailing comma so we don't add an extra column
