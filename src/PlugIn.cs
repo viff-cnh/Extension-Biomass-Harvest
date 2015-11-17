@@ -434,10 +434,8 @@ namespace Landis.Extension.BiomassHarvest
             stand.ClearDamageTable();
 
             //write to log file:
-            biomassRemovedPerHa = biomassRemoved / (double) damagedSites / modelCore.CellArea;
-
-            if(biomassRemoved <= 0.0)
-                return;
+            if (biomassRemoved > 0.0)
+                biomassRemovedPerHa = biomassRemoved / (double) damagedSites / modelCore.CellArea;
 
             log.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9:0.000},{10:0.000},{11},{12},{13}{14}",
                           modelCore.CurrentTime,
