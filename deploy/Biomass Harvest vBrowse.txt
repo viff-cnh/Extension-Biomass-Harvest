@@ -1,0 +1,9 @@
+LandisData   Extension
+
+Name         "Biomass Harvest vBrowse"
+Version      "3.1  (alpha 1)"
+Type         disturbance:harvest
+Assembly     Landis.Extension.BiomassHarvest-vBrowse
+Class        Landis.Extension.BiomassHarvest.PlugIn
+Description  "Harvesting for biomass cohorts"
+CoreVersion  6.0
