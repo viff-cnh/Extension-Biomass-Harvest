@@ -179,7 +179,7 @@ namespace Landis.Extension.BiomassHarvest
         //    summaryLog.AutoFlush = true;
         //    summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalBiomassRemovedMg,TotalCohortsDamaged,TotalCohortsKilled{0}{1}", species_header_names, species_header_names_biomass);
 
-        //}
+        }
 
         //---------------------------------------------------------------------
 
@@ -489,7 +489,7 @@ namespace Landis.Extension.BiomassHarvest
             el.Stand = stand.MapCode;
             el.EventID = stand.EventId;
             el.StandAge = stand.Age;
-            el.StandRank = stand.HarvestedRank;
+            el.StandRank = Convert.ToInt32(stand.HarvestedRank);
             el.NumberOfSites = stand.SiteCount;
             el.HarvestedSites = damagedSites;
             el.MgBiomassRemoved = biomassRemoved;
