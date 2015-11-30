@@ -31,10 +31,10 @@ namespace Landis.Extension.BiomassHarvest
         public double TotalBiomassHarvested { set; get; }
         
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Number of Cohorts Harvested by Species", SppList = true)]
-        public int[] CohortsHarvested_ { set; get; }
+        public double[] CohortsHarvested_ { set; get; }
 
         [DataFieldAttribute(Unit = FieldUnits.None, Desc = "Biomass Harvested by Species (Mg)", SppList = true)]
-        public double[] BiomassHarvested_ { set; get; }
+        public double[] BiomassHarvestedMg_ { set; get; }
 
 
     }

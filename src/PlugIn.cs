@@ -248,7 +248,7 @@ namespace Landis.Extension.BiomassHarvest
                     Prescription prescription = aprescription.Prescription;
                     //string species_string = "";
                     //string biomass_string = "";
-                    int[] species_cohorts = new int[modelCore.Species.Count];
+                    double[] species_cohorts = new double[modelCore.Species.Count];
                     double[] species_biomass = new double[modelCore.Species.Count];
                     foreach (ISpecies species in modelCore.Species)
                     {
@@ -281,7 +281,7 @@ namespace Landis.Extension.BiomassHarvest
                         sl.TotalCohortsPartialHarvest = totalCohortsDamaged[prescription.Number];
                         sl.TotalCohortsCompleteHarvest = totalCohortsKilled[prescription.Number];
                         sl.CohortsHarvested_ = species_cohorts;
-                        sl.BiomassHarvested_ = species_biomass;
+                        sl.BiomassHarvestedMg_ = species_biomass;
                         summaryLog.AddObject(sl);
                         summaryLog.WriteToFile();
 
@@ -439,7 +439,7 @@ namespace Landis.Extension.BiomassHarvest
             //string species_count = "";
             //csv string for log file, contains biomass by species
             //string species_biomass = "";
-            int[] species_cohorts = new int[modelCore.Species.Count];
+            double[] species_cohorts = new double[modelCore.Species.Count];
             double[] species_biomass = new double[modelCore.Species.Count];
 
             double biomass_value;
@@ -497,7 +497,7 @@ namespace Landis.Extension.BiomassHarvest
             el.TotalCohortsPartialHarvest = cohortsDamaged;
             el.TotalCohortsCompleteHarvest = cohortsKilled;
             el.CohortsHarvested_ = species_cohorts;
-            el.BiomassHarvested_ = species_biomass;
+            el.BiomassHarvestedMg_ = species_biomass;
 
             eventLog.AddObject(el);
             eventLog.WriteToFile();
