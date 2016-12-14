@@ -65,7 +65,7 @@ if "%~3" == "" (
 )
 set UnpackedItem=%~3
 
-set DirForUnpacking=libs
+set DirForUnpacking=bin\Debug
 
 goto :eof
 
