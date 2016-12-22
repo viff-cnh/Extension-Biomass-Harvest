@@ -6,14 +6,10 @@ setlocal
 
 set Script=%~nx0
 
-if exist "libs\README.md" (
-  goto :eof
-)
-
 rem  Set environment variables about specific library
 set LibraryFileName=supportlibs.zip
 set LibraryURL=https://github.com/LANDIS-II-Foundation/Support-Library-Dlls/archive/master.zip
-set DownloadDir=libs
+set DownloadDir=bin\Debug
 set LibraryPackage=%DownloadDir%\%LibraryFileName%
 
 rem  download the specific library
@@ -22,10 +18,10 @@ set FileInPkg=supportlibs
 
 call WinPkgTools\getPackage.cmd %LibraryUrl% %LibraryPackage% %FileInPkg%
 
-move libs\Support-Library-Dlls-master\*.* libs
+move bin\Debug\Support-Library-Dlls-master\*.* bin\Debug
 
-del /f /q libs\supportlibs.zip
-rmdir /q libs\Support-Library-Dlls-master
+del /f /q bin\Debug\supportlibs.zip
+rmdir /q bin\Debug\Support-Library-Dlls-master
 
 :exitScript
 
