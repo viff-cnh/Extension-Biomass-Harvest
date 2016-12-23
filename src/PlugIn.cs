@@ -141,43 +141,6 @@ namespace Landis.Extension.BiomassHarvest
             if (parameters.BiomassMapNames != null)
                 biomassMaps = new BiomassMaps(parameters.BiomassMapNames);
 
-            //open log file and write header
-        //    ModelCore.UI.WriteLine("   Opening harvest log file \"{0}\" ...", parameters.EventLog);
-        //    try
-        //    {
-        //        log = Landis.Data.CreateTextFile(parameters.EventLog);
-        //    }
-        //    catch (Exception err)
-        //    {
-        //        string mesg = string.Format("{0}", err.Message);
-        //        throw new System.ApplicationException(mesg);
-        //    }
-        //    log.AutoFlush = true;
-            
-        //    //include a column for each species in the species dictionary
-        //    string species_header_names = "";
-        //    string species_header_names_biomass = "";
-        //    int i = 0;
-        //    for (i = 0; i < modelCore.Species.Count; i++) {
-        //        species_header_names += "," + modelCore.Species[i].Name+"Cohorts";
-        //        species_header_names_biomass += "," + modelCore.Species[i].Name + "Mg";
-        //    }
-
-        //    log.WriteLine("Time,ManagementArea,Prescription,StandMapCode,EventId,StandAge,StandRank,StandSiteCount,DamagedSites,MgBiomassRemoved,MgBioRemovedPerDamagedHa,CohortsDamaged,CohortsKilled{0}{1}", species_header_names, species_header_names_biomass);
-
-        //    ModelCore.UI.WriteLine("   Opening summary harvest log file \"{0}\" ...", parameters.SummaryLog);
-
-        //    try
-        //    {
-        //        summaryLog = Landis.Data.CreateTextFile(parameters.SummaryLog);
-        //    }
-        //    catch (Exception err)
-        //    {
-        //        string mesg = string.Format("{0}", err.Message);
-        //        throw new System.ApplicationException(mesg);
-        //    }
-        //    summaryLog.AutoFlush = true;
-        //    summaryLog.WriteLine("Time,ManagementArea,Prescription,TotalDamagedSites,TotalBiomassRemovedMg,TotalCohortsDamaged,TotalCohortsKilled{0}{1}", species_header_names, species_header_names_biomass);
 
         }
 
@@ -280,6 +243,7 @@ namespace Landis.Extension.BiomassHarvest
                 biomassMaps.WriteMap(modelCore.CurrentTime);
 
             running = false;
+            
             SiteBiomass.DisableRecordingForHarvest();
         }
 

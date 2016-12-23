@@ -26,7 +26,6 @@ namespace Landis.Extension.BiomassHarvest
     /// The parameters for biomass harvest.
     /// </summary>
     public class Parameters
-        // : BaseHarvest.Parameters, IParameters
         : InputParameters, IParameters
     {
         private string biomassMapNamesTemplate;
