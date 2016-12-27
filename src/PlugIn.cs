@@ -1,6 +1,3 @@
-// Copyright 2008 Green Code LLC
-// Copyright 2010 Portland State University
-//
 // Contributors:
 //   James Domingo, Green Code LLC
 //   Robert M. Scheller, Portland State University
