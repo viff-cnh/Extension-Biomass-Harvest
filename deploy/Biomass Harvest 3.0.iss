@@ -12,7 +12,7 @@
 
 [Files]
 ; The extension's assembly
-Source: ..\src\bin\Debug\Landis.Extension.BiomassHarvest-3.0.dll; DestDir: {#ExtDir}; Flags: replacesameversion 
+Source: ..\src\bin\Debug\Landis.Extension.BiomassHarvest.dll; DestDir: {#ExtDir}; Flags: replacesameversion 
 
 ; Harvest libraries
 ; Note: Since they are used by other extensions, they are not uninstalled.

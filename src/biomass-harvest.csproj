@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Landis.Extension.BiomassHarvest</RootNamespace>
-    <AssemblyName>Landis.Extension.BiomassHarvest-3.0</AssemblyName>
+    <AssemblyName>Landis.Extension.BiomassHarvest</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
