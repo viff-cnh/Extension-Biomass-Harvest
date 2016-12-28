@@ -1,6 +1,6 @@
 #define PackageName      "Biomass Harvest"
 #define PackageNameLong  "Biomass Harvest Extension"
-#define Version          "3.99"
+#define Version          "3.2"
 #define ReleaseType      "official"
 
 #define CoreVersion      "6.0"
@@ -16,9 +16,9 @@ Source: ..\src\bin\Debug\Landis.Extension.BiomassHarvest.dll; DestDir: {#ExtDir}
 
 ; Harvest libraries
 ; Note: Since they are used by other extensions, they are not uninstalled.
-Source: ..\src\bin\Debug\Landis.Library.BiomassCohorts.dll;       DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
+Source: ..\src\bin\Debug\Landis.Library.BiomassCohorts-v2.dll;       DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
 Source: ..\src\bin\Debug\Landis.Library.Biomass-v1.dll;       DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
-Source: ..\src\bin\Debug\Landis.Library.BiomassHarvest-v1.dll;    DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
+Source: ..\src\bin\Debug\Landis.Library.BiomassHarvest-v2.dll;    DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
 Source: ..\src\bin\Debug\Landis.Library.HarvestManagement-v1.dll; DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
 Source: ..\src\bin\Debug\Landis.Library.SiteHarvest-v1.dll;       DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
 Source: ..\src\bin\Debug\Landis.Library.Metadata.dll;       DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
