@@ -4,7 +4,6 @@
  
 using Landis.SpatialModeling;
 using System;
-//using Landis.Extension.BaseHarvest;
 using Landis.Library.HarvestManagement;
 
 namespace Landis.Extension.BiomassHarvest
