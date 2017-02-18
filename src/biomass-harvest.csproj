@@ -56,7 +56,7 @@
     <Reference Include="Landis.Library.Cohorts">
       <HintPath>lib\Landis.Library.Cohorts.dll</HintPath>
     </Reference>
-    <Reference Include="Landis.Library.HarvestManagement-v1">
+    <Reference Include="Landis.Library.HarvestManagement-v2">
       <HintPath>lib\Landis.Library.HarvestManagement-v1.dll</HintPath>
     </Reference>
     <Reference Include="Landis.Library.Metadata">
