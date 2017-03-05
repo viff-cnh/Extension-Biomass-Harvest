@@ -1,10 +1,10 @@
-Title:			README_BiomassHarvest3.2 -- Extension and Repository
+Title:			README_BiomassHarvest3.2
 Project:		LANDIS-II Landscape Change Model
 Project Component:	Extension-Biomass-Harvest
 Repository:		https://github.com/LANDIS-II-Foundation/Extension-Biomass-Harvest
 Author:			LANDIS-II Foundation
 Revision Date:		24 Nov 2016
-Final Date:		17 Feb 2017
+Final Date:		04 Mar 2017
 
 
 Welcome to the source code repository for Extension-Biomass-Harvest, a LANDIS-II extension. 
