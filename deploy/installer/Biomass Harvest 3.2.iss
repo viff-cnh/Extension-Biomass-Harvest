@@ -35,6 +35,7 @@ Source: ..\..\src\bin\Debug\Landis.Library.Metadata.dll;       DestDir: {#ExtDir
 Source: ..\example\*.txt; DestDir: {#AppDir}\examples\Biomass Harvest
 Source: ..\example\*.gis; DestDir: {#AppDir}\examples\Biomass Harvest
 Source: ..\example\*.bat; DestDir: {#AppDir}\examples\Biomass Harvest
+Source: ..\example\*.csv; DestDir: {#AppDir}\examples\Biomass Harvest
 
 
 ; LANDIS-II identifies the extension with the info in this .txt file
