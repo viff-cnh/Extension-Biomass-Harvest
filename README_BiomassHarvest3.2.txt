@@ -4,10 +4,20 @@ Project Component:	Extension-Biomass-Harvest
 Repository:		https://github.com/LANDIS-II-Foundation/Extension-Biomass-Harvest
 Author:			LANDIS-II Foundation
 Revision Date:		24 Nov 2016
-Final Date:		04 Mar 2017
+Final Date:		21 Apr 2017
 
 
-Welcome to the source code repository for Extension-Biomass-Harvest, a LANDIS-II extension. 
+Welcome to the source code repository for Extension-Biomass-Harvest, a LANDIS-II disturbance extension.
+
+Biomass Harvest, exactly like Base Harvest from which it was derived, uses harvesting prescriptions 
+to remove selected species cohorts. The major difference is that Biomass Harvest supports partial 
+thinning of cohorts (i.e., some percentage less than 100% removal) whereas Base Harvest always 
+removes 100% of a selected cohort. A harvesting prescription requires the definition of a variety 
+of parameters including StandRanking, SiteSelection, and CohortsRemoved and Extension Biomass Harvest
+is only compatible with succession extensions that use the same cohort type, in this case cohorts with 
+species AND age AND aboveground biomass data. 
+
+
 This README file provides the following info:
 
 	1) The basic relationship between 'the science' (various biological, geological, 
@@ -15,9 +25,9 @@ geochemical,climatological, ecological, spatial, and landscape ecological mechan
 and 'the model' (LANDIS-II);
 
 	2) The basic process for modifying and subsequently compiling the source code 
-(written in C#) into a new, <name-of-extension>.dll library.
+(written in C#) into a new, <name-of-your-extension-of-interest>.dll library.
 
-	3) The basic process for testing a new <name-of-extension>.dll library.
+	3) The basic process for testing a new, <name-of-your-extension-of-interest>.dll library.
 
 
 

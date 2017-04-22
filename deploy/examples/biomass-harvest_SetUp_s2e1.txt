@@ -1,19 +1,19 @@
 LandisData  "Biomass Harvest"
 
 
-Timestep    5
+>>----------------
+>> REQUIRED INPUTS
+>>-----------------
+Timestep		5
 
+ManagementAreas 	./biomass-harvest_Management_s2e1.gis
 
->>-------------------------
->> HARVEST MAPS
->>---------------------------
-ManagementAreas 	./biomass-harvest_Management.gis
-Stands     		./biomass-harvest_Stand.gis
+Stands     		./biomass-harvest_Stand_s2e1.gis
 
 
 
 >> -------------------------
->> HARVEST PRESCRIPTIONS
+>> HARVESTING PRESCRIPTIONS
 >> -------------------------
 
 >>---- PRESCRIPTION_1 ---------------------------------------
@@ -50,7 +50,7 @@ Prescription SelectiveNorthernHardwood
     CohortsRemoved SpeciesList
 >>	Species		Selection
 >>	-------		---------
-	acerrubr   	1-400 (50%)
+	acerrubr   	1-400 					<<100% removal of acerrubr
 	acersacc   	1-40 (50%)  45-100 (5%) 105 (65%) 
 	betualle   	1-400 (50%)
 	fraxamer   	1-400 (50%)
@@ -82,7 +82,7 @@ Prescription    OakPatchCutting
 
 
 >> ----------------------------------
->> HARVEST IMPLEMENTATION 
+>> HARVESTING IMPLEMENTATION 
 >> ---------------------------------
 
     HarvestImplementations
