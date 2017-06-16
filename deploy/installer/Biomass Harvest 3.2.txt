@@ -1,6 +1,6 @@
 LandisData   Extension
 
-Name         "Biomass Harvest"
+Name         "internal-to-LANDISII Biomass Harvest"
 Version      "3.2"
 Type         disturbance:harvest
 Assembly     Landis.Extension.BiomassHarvest
