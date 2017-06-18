@@ -27,10 +27,6 @@ Source: ..\..\src\bin\Debug\Landis.Library.SiteHarvest-v1.dll;       DestDir: {#
 Source: ..\..\src\bin\Debug\Landis.Library.Metadata.dll;       DestDir: {#ExtDir}; Flags: replacesameversion uninsneveruninstall
 
 
-; User Guides no longer shipped with installer
-;Source: docs\LANDIS-II Biomass Harvest v3.1 User Guide.pdf; DestDir: {#AppDir}\docs
-
-
 ; Complete example for testing
 Source: ..\examples\*.txt; DestDir: {#AppDir}\examples\Biomass Harvest; Flags: replacesameversion
 Source: ..\examples\*.gis; DestDir: {#AppDir}\examples\Biomass Harvest; Flags: replacesameversion
