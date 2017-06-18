@@ -32,10 +32,10 @@ Source: ..\..\src\bin\Debug\Landis.Library.Metadata.dll;       DestDir: {#ExtDir
 
 
 ; Complete example for testing
-Source: ..\examples\*.txt; DestDir: {#AppDir}\examples\Biomass Harvest
-Source: ..\examples\*.gis; DestDir: {#AppDir}\examples\Biomass Harvest
-Source: ..\examples\*.bat; DestDir: {#AppDir}\examples\Biomass Harvest
-Source: ..\examples\*.csv; DestDir: {#AppDir}\examples\Biomass Harvest
+Source: ..\examples\*.txt; DestDir: {#AppDir}\examples\Biomass Harvest; Flags: replacesameversion
+Source: ..\examples\*.gis; DestDir: {#AppDir}\examples\Biomass Harvest; Flags: replacesameversion
+Source: ..\examples\*.bat; DestDir: {#AppDir}\examples\Biomass Harvest; Flags: replacesameversion
+Source: ..\examples\*.csv; DestDir: {#AppDir}\examples\Biomass Harvest; Flags: replacesameversion
 
 
 ; LANDIS-II identifies the extension with the info in this .txt file
