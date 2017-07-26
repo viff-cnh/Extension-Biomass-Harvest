@@ -55,7 +55,12 @@ namespace Landis.Extension.BiomassHarvest
         {
             return CohortCutterFactory.CreateCutter(cohortSelector, HarvestExtensionMain.ExtType);
         }
- 
+
+        protected override ICohortCutter CreateAdditionalCohortCutter(ICohortSelector cohortSelector)
+        {
+            return CohortCutterFactory.CreateAdditionalCutter(cohortSelector, HarvestExtensionMain.ExtType);
+        }
+
         //---------------------------------------------------------------------
 
         /// <summary>
@@ -76,6 +81,29 @@ namespace Landis.Extension.BiomassHarvest
                 // and ranges.  So just create and store a whole cohort
                 // selector using the base method.
                 base.CreateCohortSelectionMethodFor(species, ages, ranges);
+            }
+        }
+
+        //---------------------------------------------------------------------
+
+        /// <summary>
+        /// Creates a cohort selection method for a specific set of ages and
+        /// age ranges.
+        /// </summary>
+        /// <remarks>
+        /// This overrides the base method so it can use the PartialThinning
+        /// class to handle cohort selections with percentages.
+        /// </remarks>
+        protected override void CreateAdditionalCohortSelectionMethodFor(ISpecies species,
+                                                               IList<ushort> ages,
+                                                               IList<AgeRange> ranges)
+        {
+            if (!PartialThinning.CreateAdditionalCohortSelectorFor(species, ages, ranges))
+            {
+                // There were no percentages specified for this species' ages
+                // and ranges.  So just create and store a whole cohort
+                // selector using the base method.
+                base.CreateAdditionalCohortSelectionMethodFor(species, ages, ranges);
             }
         }
 
