@@ -51,7 +51,7 @@ namespace Landis.Extension.BiomassHarvest
         public static ushort GetMaxAge(ActiveSite site)
         {
             int maxAge = 0;
-            foreach (ISpeciesCohorts sppCo in SiteVars.Cohorts[site])
+            foreach (ISpeciesCohorts sppCo in (Landis.Library.BiomassCohorts.ISpeciesCohorts) SiteVars.Cohorts[site])
                 foreach (ICohort cohort in sppCo)
                     if (cohort.Age > maxAge)
                         maxAge = cohort.Age;
