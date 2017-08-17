@@ -50,7 +50,7 @@ Prescription SelectiveNorthernHardwood
     CohortsRemoved SpeciesList
 >>	Species		Selection
 >>	-------		---------
-	acerrubr   	1-400 					<<100% removal of acerrubr
+	acerrubr   	1-400 (50%)
 	acersacc   	1-40 (50%)  45-100 (5%) 105 (65%) 
 	betualle   	1-400 (50%)
 	fraxamer   	1-400 (50%)
