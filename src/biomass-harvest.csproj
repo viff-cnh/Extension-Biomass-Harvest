@@ -13,16 +13,18 @@
       <HintPath>..\lib\Edu.Wisc.Forest.Flel.Util.dll</HintPath>
     </Reference>
 
-    <PackageReference Include="Landis.Core" Version="1.0.0-CI00001" />
-    <PackageReference Include="Landis.Library.AgeOnlyCohorts" Version="1.0.0-CI00001" />
-    <PackageReference Include="Landis.Library.Biomass-v1.0.1" Version="1.0.0-CI00002" />
+    <PackageReference Include="Landis.Core" Version="1.0.0-CI00002" />
+    <PackageReference Include="Landis.Library.AgeOnlyCohorts" Version="1.0.0-CI00003" />
     <PackageReference Include="Landis.Library.BiomassCohorts-v2" Version="1.0.0-CI00007" />
     <PackageReference Include="Landis.Library.BiomassHarvest-v2.0.1" Version="1.0.0-CI00001" />
-    <PackageReference Include="Landis.Library.Cohorts" Version="1.0.0-CI00001" />
-    <PackageReference Include="Landis.Library.HarvestManagement-v2" Version="1.0.0-CI00002" />
     <PackageReference Include="Landis.Library.Metadata" Version="1.0.0-CI00002" />
-    <PackageReference Include="Landis.Library.SiteHarvest-v1" Version="1.0.0-CI00003" />
-    <PackageReference Include="Landis.Library.Succession-v5" Version="1.0.0-CI00004" />
-    <PackageReference Include="Landis.SpatialModeling" Version="1.0.0-CI00001" />
+    <PackageReference Include="Landis.SpatialModeling" Version="1.0.0-CI00003" />
+
+    <!-- Use Nuget packages with Succession-vAGB dependency for NECN-Hydro scenario otherwise use Succession-v5 -->
+    <PackageReference Include="Landis.Library.Succession-vAGB-Input" Version="1.0.0" />
+    <PackageReference Include="Landis.Library.Biomass-v1.0.1" Version="1.0.0" />
+    <PackageReference Include="Landis.Library.SiteHarvest-v1" Version="1.0.0" />
+    <PackageReference Include="Landis.Library.Cohorts" Version="1.0.0-CI00002" />
+    <PackageReference Include="Landis.Library.HarvestManagement-v2" Version="1.0.0" />
   </ItemGroup>
 </Project>
